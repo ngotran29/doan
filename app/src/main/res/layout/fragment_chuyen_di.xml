@@ -7,6 +7,127 @@
     tools:context=".ChuyenDiFragment">
 
 
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="48dp"
+        android:background="#FFFBE7"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="20:30"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:text="04:00"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_circle" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/ic_location" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hồ chí minh" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:text="Đà lạt" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="3000000 đ"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <LinearLayout
+                android:layout_width="230dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/an_anh_limouse" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="An Anh Limousine" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#FDE767"
+                android:text="Chọn chuyến"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
@@ -24,7 +145,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:src="@drawable/img" />
+                android:src="@drawable/baseline_arrow_back_24" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,37 +174,125 @@
         android:layout_width="380dp"
         android:layout_height="200dp"
         android:layout_marginTop="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:background="#FFFBE7"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="horizontal">
+
+
             <LinearLayout
-                android:layout_width="190dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="95dp"
+                    android:layout_width="48dp"
                     android:layout_height="wrap_content"
-                    android:text="20:30"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/img"/>
+                    android:layout_marginLeft="5dp"
+                    android:text="20:30"
+                    android:textSize="17sp" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:text="04:00"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_circle" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/ic_location" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hồ chí minh" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:text="Đà lạt" />
             </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="3000000 đ"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="2dp"
+            android:background="#B5C0D0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="99dp">
+
+            <LinearLayout
+                android:layout_width="230dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/an_anh_limouse" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="An Anh Limousine" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btchonchuyen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#FDE767"
+                android:text="Chọn chuyến"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
         </LinearLayout>
     </LinearLayout>

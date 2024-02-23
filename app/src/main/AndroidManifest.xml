@@ -12,11 +12,62 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nháp"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".TaiKhoanActivity"
+            android:name=".CanceledFragment"
             android:exported="false" />
-
-
+        <activity
+            android:name=".ChongheFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ChuyenDiFragment"
+            android:exported="false" />
+        <activity
+            android:name=".CityFragment"
+            android:exported="false" />
+        <activity
+            android:name=".DiemDenFragment"
+            android:exported="false" />
+        <activity
+            android:name=".DiemDonFragment"
+            android:exported="false" />
+        <activity
+            android:name=".HoantatFragment"
+            android:exported="false" />
+        <activity
+            android:name=".NgaydiFragment"
+            android:exported="false" />
+        <activity
+            android:name=".PresentFragment"
+            android:exported="false" />
+        <activity
+            android:name=".TaikhoanFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ThanhtoanFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ThongbaoFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ThongtinNguoidiFragment"
+            android:exported="false" />
+        <activity
+            android:name=".TimkiemFragment"
+            android:exported="false" />
+        <activity
+            android:name=".Utils"
+            android:exported="false" />
+        <activity
+            android:name=".VeFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ViewPagerAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".WentFragment"
+            android:exported="false" />
         <activity
             android:name=".User"
             android:exported="false" />
