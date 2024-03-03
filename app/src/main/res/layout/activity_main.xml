@@ -24,6 +24,8 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toTopOf="@+id/navMenu"
         app:layout_constraintLeft_toLeftOf="parent" />
+    />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

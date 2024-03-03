@@ -47,8 +47,7 @@ public class Register extends AppCompatActivity {
         edUserNameC = findViewById(R.id.edUserNameRe);
         edPasswordC = findViewById(R.id.edPassWordRE);
         edConfirmPassWordC = findViewById(R.id.ed_confirm_pass);
-        edEmailC = findViewById(R.id.edEmailRE);
-        edPhoneNumberC = findViewById(R.id.edPhoneRE);
+
         rbSex = findViewById(R.id.rg_gioitinh);
         btRegister = findViewById(R.id.btRegisterRE);
         imBack = findViewById(R.id.imbBack);
@@ -63,8 +62,8 @@ public class Register extends AppCompatActivity {
         String userName = edUserNameC.getText().toString().trim();
         String pass = edPasswordC.getText().toString().trim();
         String confimPass = edConfirmPassWordC.getText().toString().trim();
-        String email = edEmailC.getText().toString().trim();
-        String phone = edPhoneNumberC.getText().toString().trim();
+//        String email = edEmailC.getText().toString().trim();
+//        String phone = edPhoneNumberC.getText().toString().trim();
         //nếu sex = 1 là nam, sex =0 là nữ
         int sex = 1;
         boolean isvaid = checkUserName(userName)&& checkPassWord(pass, confimPass) ;
@@ -73,8 +72,8 @@ public class Register extends AppCompatActivity {
             User userNew = new User();
             userNew.setUserName(userName);
             userNew.setPassword(pass);
-            userNew.setEmail(email);
-            userNew.setPhoneNumber(phone);
+//            userNew.setEmail(email);
+//            userNew.setPhoneNumber(phone);
             // lấy radio button id đang được checked
             int sexSelected = rbSex.getCheckedRadioButtonId();
             if(sexSelected == R.id.rbNu)

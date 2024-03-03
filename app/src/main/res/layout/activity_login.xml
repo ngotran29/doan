@@ -40,7 +40,7 @@
         android:id="@+id/tvlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LOGIN INFORMATION"
+        android:text="ĐĂNG NHẬP"
         android:textSize="30sp"
         android:textColor="#86A7FC"
         android:textStyle="bold"
@@ -50,9 +50,14 @@
     <EditText
         android:id="@+id/edUsername"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="#D9EDBF"
+        android:layout_height="52dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/corner_rounded_gray"
+        android:paddingStart="20dp"
+
         android:hint="UserName"
         android:padding="2dp"
         android:drawablePadding="4dp"
@@ -61,9 +66,13 @@
     <EditText
         android:id="@+id/edPassWord"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="#D9EDBF"
+        android:layout_height="52dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/corner_rounded_gray"
+        android:paddingStart="20dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:drawablePadding="4dp"
@@ -100,8 +109,8 @@
         android:id="@+id/btnLogin"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
         android:text="Login" />
 
     <Button

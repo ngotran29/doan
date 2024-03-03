@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 edPassWord.getText().toString().trim().equals(user.getPassword());
 
         if (isValid) {
-//            Intent intent = new Intent(LoginActivity.this, TaikhoanFragment.class);
+            Intent intent = new Intent(LoginActivity.this, TaikhoanFragment.class);
 //            // Khởi tạo bundle để truyền data qua cho TaiKhoanFragment
 //            Bundle bundle = new Bundle();
 //
@@ -73,7 +73,9 @@ public class LoginActivity extends AppCompatActivity {
 //            intent.putExtras(bundle);
 //            startActivity(intent);
             Intent i = new Intent();
-            i.putExtra(Utils.KEY_USERNAME,edUserName.getText());
+            String userName = edUserName.getText().toString();
+
+            i.putExtra(Utils.KEY_USERNAME,edUserName.getText().toString());
             setResult(296,i);
             finish();
         }

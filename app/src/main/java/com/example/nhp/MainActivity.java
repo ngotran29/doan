@@ -8,24 +8,30 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.ActionBar;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView mnBottom;
-    private TabLayout tablayout;
-    private ViewPager viewpager;
-    private void addControls() {
-        tablayout.findViewById(R.id.tablayout);
-        viewpager.findViewById(R.id.viewpager);
-    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
     @NonNull
     private NavigationBarView.OnItemSelectedListener getItemSelectedListener() {
@@ -65,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         fmTran.addToBackStack(null);
         fmTran.commit();
     }
+
+
 
 }
 

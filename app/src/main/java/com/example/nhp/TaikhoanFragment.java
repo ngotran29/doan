@@ -1,11 +1,15 @@
 package com.example.nhp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -39,6 +43,7 @@ public class TaikhoanFragment extends Fragment {
         // Inflate layout cho fragment này
         View view = inflater.inflate(R.layout.fragment_taikhoan, container, false);
         // Tìm các view bằng ID
+        Button imlogOutButton = view.findViewById(R.id.imlog_out);
         TextView tv_tv = view.findViewById(R.id.tv_tv);
         ActivityResultLauncher<Intent> someActivityResultLauncherNgo = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -76,7 +81,48 @@ public class TaikhoanFragment extends Fragment {
             }
         });
 
-
+        imlogOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Gọi phương thức để xử lý đăng xuất
+                handleLogout();
+            }
+        });
         return view;
     }
-}
+
+    void showLogoutConfirmationDialog() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
+        builder1.setMessage("Bạn có muốn đăng xuất?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Có",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Chuyển đến LoginActivity
+                        Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(loginIntent);
+
+//                        // Đóng fragment hoặc thực hiện các bước cần thiết để đăng xuất
+//                        getParentFragmentManager().popBackStack(); // Đóng fragment
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "Không",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+    private void handleLogout() {
+        // Hiển thị hộp thoại xác nhận đăng xuất
+        showLogoutConfirmationDialog();
+    }
+    }
+
