@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -55,6 +56,10 @@ dependencies {
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.20")
 //    implementation ("com.squareup.okhttp3:okhttp:4.6.0")
 //    implementation ("commons-codes:commons-codec:1.14")
+
+    //firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-analytics")
 
 }
 

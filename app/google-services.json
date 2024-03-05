@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "689582273584",
+    "project_id": "register-dbcc7",
+    "storage_bucket": "register-dbcc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689582273584:android:caf0febb31d46180f4e9f5",
+        "android_client_info": {
+          "package_name": "com.example.nhp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbQib6SpjQxpD9vydWnH8PoDrRGxZdg6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
