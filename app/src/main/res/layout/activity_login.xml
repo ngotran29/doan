@@ -105,6 +105,20 @@
 
 <!--    </LinearLayout>-->
 
+    <EditText
+        android:id="@+id/edtPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Sdt" />
+
+    <Button
+        android:id="@+id/btnOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhận mã xác thực " />
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="150dp"

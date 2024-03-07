@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EnterOtpActivity">
+    <EditText
+        android:id="@+id/edt_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="enter otp code" />
+
+    <Button
+        android:id="@+id/btn_send_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="send otp code " />
+
+    <TextView
+        android:id="@+id/tv_send_again"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tôi không nhận được OTP"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+</LinearLayout>

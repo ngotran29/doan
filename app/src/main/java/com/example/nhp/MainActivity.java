@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         loadFragment(new TimkiemFragment());
 
+        setTitleToolbar();
+
 
 
     }
@@ -73,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
         fmTran.commit();
     }
 
+    private void setTitleToolbar(){
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle("Main Activity");
+        }
+    }
 
 
 }

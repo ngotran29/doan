@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    Button btLogin, btResgister;
-    EditText edUserName, edPassWord;
+    Button btLogin, btResgister, btnOtp;
+    EditText edUserName, edPassWord,edtPhoneNumber;
     private final Gson gson = new Gson();
     SharedPreferences sharedPreferences;
 
@@ -25,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         anhxa();
         sharedPreferences = getSharedPreferences(Utils.SHARE_PREFERENCES_APP, Context.MODE_PRIVATE);
         taosukien();
+        initUi();
+        setTitleToolbar();
     }
 
     private void taosukien() {
@@ -36,6 +38,17 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        btnOtp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String strPhoneNumber = edtPhoneNumber.getText().toString().trim();
+                onClickVerifyPhoneNumber(strPhoneNumber);
+            }
+        });
+    }
+
+    private void onClickVerifyPhoneNumber(String strPhoneNumber) {
+
     }
 
     private void anhxa() {
@@ -43,7 +56,20 @@ public class LoginActivity extends AppCompatActivity {
         btResgister = findViewById(R.id.btnRegister);
         edUserName = findViewById(R.id.edUsername);
         edPassWord = findViewById(R.id.edPassWord);
+
     }
+
+    //Otp
+    private void setTitleToolbar(){
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle("Login Activity");
+        }
+    }
+    private void initUi(){
+        btnOtp = findViewById(R.id.btnOtp);
+        edtPhoneNumber = findViewById(R.id.edtPhoneNumber);
+    }
+
 
     private void checkUserLogin() {
         String usePre = sharedPreferences.getString(Utils.KEY_USER, null);
