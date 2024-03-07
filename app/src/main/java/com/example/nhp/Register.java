@@ -1,128 +1,264 @@
 package com.example.nhp;
 
-
-
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import com.google.gson.Gson;
-
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.example.nhp.classes.ProgressHelper;
+import com.example.nhp.Utils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
-    private EditText edUserNameC;
-    private EditText edPasswordC;
-    private EditText edConfirmPassWordC;
-    private EditText edEmailC;
-    private EditText edPhoneNumberC;
-    private Button btRegister;
-    private ImageButton imBack;
-    private RadioGroup rbSex;
-    private SharedPreferences.Editor editor;
-
-    SharedPreferences sharedPreferences;
-    private final Gson gson = new Gson();
+    ImageView imgAvatar;
+    RelativeLayout relativeLayout;
+    EditText edUsername, edFullName, edPass, edConfirmPass;
+    Button btSignUp, btForgotPass;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        setContentView(R.layout.activity_register);
-
-        //khai báo share Pre
-        sharedPreferences = getSharedPreferences(Utils.SHARE_PREFERENCES_APP, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        //laydulieu
-        laydulieu();
-        taosukien();
+        initView();
+        initAction();
     }
 
-    void laydulieu() {
-        edUserNameC = findViewById(R.id.edUserNameRe);
-        edPasswordC = findViewById(R.id.edPassWordRE);
-        edConfirmPassWordC = findViewById(R.id.ed_confirm_pass);
-
-        rbSex = findViewById(R.id.rg_gioitinh);
-        btRegister = findViewById(R.id.btRegisterRE);
-        imBack = findViewById(R.id.imbBack);
+    void initView() {
+        relativeLayout = findViewById(R.id.relativeLayout);
+        imgAvatar = findViewById(R.id.imageViewAvatar);
+        imgAvatar.setImageBitmap(Utils.loadBitmapFromAssets(this, "select_avatar_placeholder.png"));
+        //
+        toolbar = findViewById(R.id.materialToolbarSignUp);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //
+        edUsername = findViewById(R.id.editTextUserName);
+        edFullName = findViewById(R.id.editTextFullName);
+        edPass = findViewById(R.id.editTextPassword);
+        edConfirmPass = findViewById(R.id.editTextConfirmPassword);
+        btSignUp = findViewById(R.id.buttonRegister);
+        btForgotPass = findViewById(R.id.buttonForgotPassword);
     }
 
-    void taosukien() {
-        btRegister.setOnClickListener(v -> sukienRegister());
-        imBack.setOnClickListener(v -> finish());
-    }
-
-    void sukienRegister() {
-        String userName = edUserNameC.getText().toString().trim();
-        String pass = edPasswordC.getText().toString().trim();
-        String confimPass = edConfirmPassWordC.getText().toString().trim();
-//        String email = edEmailC.getText().toString().trim();
-//        String phone = edPhoneNumberC.getText().toString().trim();
-        //nếu sex = 1 là nam, sex =0 là nữ
-        int sex = 1;
-        boolean isvaid = checkUserName(userName)&& checkPassWord(pass, confimPass) ;
-        if(isvaid){
-            // nếu dữ liệu hợp lệ, tạo đối tượng user để lưu vô share pre
-            User userNew = new User();
-            userNew.setUserName(userName);
-            userNew.setPassword(pass);
-//            userNew.setEmail(email);
-//            userNew.setPhoneNumber(phone);
-            // lấy radio button id đang được checked
-            int sexSelected = rbSex.getCheckedRadioButtonId();
-            if(sexSelected == R.id.rbNu)
-            {
-                sex = 0;
+    void initAction() {
+        imgAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayBottomSheet();
             }
-            userNew.setSex(sex);
-            // vì user là object nên convert qua string với format là json để lưu vào share pre
+        });
 
-            String userStr = gson.toJson(userNew);
-            editor.putString(Utils.KEY_USER,userStr);
-            editor.commit();
-            // dùng Toast đẻ show thông báo đăng ký thành công
-            Toast.makeText(Register.this, "Đăng ký tài khoản thành công", Toast.LENGTH_LONG).show();
-            //finish
-            finish();
-        }
+        btForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //
+            }
+        });
 
+        btSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //
+                if (checkInput() == true) {
+                    ProgressHelper.showDialog(Register.this,"Loading...");
+                    firebaseRegisterNewUser();
+
+
+                }
+                Intent i = new Intent(Register.this, LoginActivity.class);
+                startActivity(i);
+                //
+            }
+        });
+    }
+    void updateUserProfile(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(edFullName.getText().toString())
+                .setPhotoUri(Uri.parse(""))
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("", "User profile updated.");
+                        }
+                    }
+                });
     }
 
-    private boolean checkUserName(String userName) {
-        if (userName.isEmpty()) {
-            edUserNameC.setError("Vui lòng nhập tên đăng nhập");
+
+    void firebaseRegisterNewUser(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // Create a new user with a first and last name
+        Map<String, Object> user = new HashMap<>();
+        user.put("userName", edUsername.getText().toString().trim());
+        user.put("fullName", edFullName.getText().toString());
+        user.put("password", edPass.getText().toString());
+        user.put("avatar", "");
+
+
+// Add a new document with a generated ID
+        db.collection("users")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        ProgressHelper.dismissDialog();
+                        Log.d("Register", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        ProgressHelper.dismissDialog();
+                        Log.w("Register", "Error adding document", e);
+                    }
+                });
+    }
+    boolean checkInput() {
+        if (edUsername.getText().toString().length() < 6) {
+            edUsername.setError("Invalid mobile number / email.");
             return false;
         }
-        if (userName.length() <= 5) {
-            edUserNameC.setError("Tên đăng nhập phải ít nhất có 6 ký tự");
+
+        if (edFullName.getText().toString().length() < 3) {
+            edFullName.setError("Invalid full name.");
             return false;
         }
+
+        if (edPass.getText().toString().length() < 3) {
+            edPass.setError("Invalid password.");
+            return false;
+        }
+
+        if (!edPass.getText().toString().equals(edConfirmPass.getText().toString())) {
+            edConfirmPass.setError("Password not match.");
+            return false;
+        }
+
         return true;
     }
-    private boolean checkPassWord(String passWord, String confimpass){
-        if(passWord.isEmpty()){
-            edPasswordC.setError("Vui lòng nhập mật khẩu");
-            return false;
-        }
-        if (passWord.length()<=5)
-        {
-            edPasswordC.setError("Mật khẩu phải có ít nhất 6 ký tự");
-            return false;
-        }
-        if(!passWord.equals(confimpass))
-        {
-            edConfirmPassWordC.setError("Xác nhận mật khẩu không khớp");
-            return false;
-        }
-        return true;
+
+    private void displayBottomSheet() {
+
+        // creating a variable for our bottom sheet dialog.
+        final BottomSheetDialog bottomSheetTeachersDialog = new BottomSheetDialog(this, R.style.BottomSheetDialogTheme);
+
+        // passing a layout file for our bottom sheet dialog.
+        View layout = LayoutInflater.from(this).inflate(R.layout.select_photo_bottom_sheet_layout, relativeLayout, false);
+
+        // passing our layout file to our bottom sheet dialog.
+        bottomSheetTeachersDialog.setContentView(layout);
+
+        // below line is to set our bottom sheet dialog as cancelable.
+        bottomSheetTeachersDialog.setCancelable(false);
+
+        // below line is to set our bottom sheet cancelable.
+        bottomSheetTeachersDialog.setCanceledOnTouchOutside(true);
+        bottomSheetTeachersDialog.setOnShowListener(dialogInterface -> {
+            BottomSheetDialog d = (BottomSheetDialog) dialogInterface;
+
+            FrameLayout bottomSheet = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+            BottomSheetBehavior.from(bottomSheet).setState(BottomSheetBehavior.STATE_EXPANDED);
+        });
+
+        // below line is to display our bottom sheet dialog.
+        bottomSheetTeachersDialog.show();
+
+        // initializing our text views and image views.
+        Button btGallery = layout.findViewById(R.id.buttonSelectGallery);
+        btGallery.setOnClickListener(view -> {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            imagePickerActivityResult.launch(photoPickerIntent);
+        });
+        Button btCapture = layout.findViewById(R.id.buttonSelectCapture);
+        btCapture.setOnClickListener(view -> {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            imageCaptureActivityResult.launch(intent);
+        });
+        // creating a variable for document reference.
+
     }
 
+    ActivityResultLauncher<Intent> imagePickerActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result != null) {
+                        Intent data = result.getData();
+                        Uri imageUri = data.getData();
+                        Bitmap bitmap = null;
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                            imgAvatar.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
 
+                    }
+                }
+            }
+    );
 
+    ActivityResultLauncher<Intent> imageCaptureActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result != null) {
+                        Intent intent = result.getData();
+                        Bitmap photo = (Bitmap) intent.getExtras().get("data");
+                        imgAvatar.setImageBitmap(photo);
+                    }
+                }
+            }
+    );
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
 }

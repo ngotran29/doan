@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="app_main_bg">#EB673E</color>
+    <color name="background_blur">#30000000</color>
 </resources>

@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import pl.droidsonroids.gif.GifImageView;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,6 +23,7 @@ import pl.droidsonroids.gif.GifDrawable;
 
 public class AnimationActivity extends AppCompatActivity {
     GifImageView  logoAnim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +34,16 @@ public class AnimationActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if(currentUser != null){
+                    String str1 = currentUser.getEmail();
+                    String str2 = currentUser.getDisplayName();
+                    Uri str3 = currentUser.getPhotoUrl();
+                    gotoHomeScreen();
+                } else {
+                    gotoHomeScreen();
+                }
 
-                gotoHomeScreen();
                 finish();
             }
         }, 1500);
@@ -39,6 +52,10 @@ public class AnimationActivity extends AppCompatActivity {
     }
     void gotoHomeScreen() {
         Intent i = new Intent(AnimationActivity.this, MainActivity.class);
+        startActivity(i);
+    }
+    void gotoLogin(){
+        Intent i = new Intent(AnimationActivity.this, LoginActivity.class);
         startActivity(i);
     }
     void showAnimation() {

@@ -1,11 +1,31 @@
 package com.example.nhp;
 
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import java.io.InputStream;
+
 public class Utils {
-    public static final String SHARE_PREFERENCES_APP ="share_preferences_app";
-    public static final String KEY_ACCOUNT ="key_account";
-    public static final String KEY_IS_LOGIN = "key_is_login";
-    public static final String KEY_USERNAME = "key_username";
-    public  static final String KEY_USER ="key_user";
-    public static  final  String KEY_USER_PROFILE ="key_user_profile";
+    public static Bitmap loadBitmapFromAssets(Context context, String path)
+    {
+        InputStream stream = null;
+        try
+        {
+            stream = context.getAssets().open("avatars/"+path);
+            return BitmapFactory.decodeStream(stream);
+        }
+        catch (Exception ignored) {} finally
+        {
+            try
+            {
+                if(stream != null)
+                {
+                    stream.close();
+                }
+            } catch (Exception ignored) {}
+        }
+        return null;
+    }
 }
