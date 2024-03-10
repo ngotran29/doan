@@ -30,12 +30,7 @@
         <activity
             android:name=".CityFragment"
             android:exported="false" />
-        <activity
-            android:name=".DiemDenFragment"
-            android:exported="false" />
-        <activity
-            android:name=".DiemDonFragment"
-            android:exported="false" />
+       
         <activity
             android:name=".HoantatFragment"
             android:exported="false" />

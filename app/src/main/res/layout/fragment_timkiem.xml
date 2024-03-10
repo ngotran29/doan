@@ -75,7 +75,7 @@
                         android:id="@+id/tvNoidi"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Hồ chí minh"
+                        android:hint="Chọn điểm bắt đầu"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -98,7 +98,7 @@
                         android:id="@+id/tvNoiden"
                         android:layout_width="326dp"
                         android:layout_height="50dp"
-                        android:text="Bến tre"
+                        android:hint="Chọn điểm kết thúc"
                         android:textSize="20sp" />
                 </LinearLayout>
 

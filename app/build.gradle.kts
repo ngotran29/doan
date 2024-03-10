@@ -58,11 +58,12 @@ dependencies {
 //    implementation ("commons-codes:commons-codec:1.14")
 
     //firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-database")
 
     //load img
     implementation ("com.github.bumptech.glide:glide:4.16.0")

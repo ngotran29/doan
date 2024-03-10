@@ -53,8 +53,8 @@ public class TaikhoanFragment extends Fragment {
 
                         if (result.getResultCode() == 296) {
                             // There are no request codes
-
-                            Intent data = result.getData();
+//
+//                            Intent data = result.getData();
                             // do something
                             // Cập nhật giá trị cho tvlogin_tk
 //                            assert data != null;
@@ -69,7 +69,6 @@ public class TaikhoanFragment extends Fragment {
                         }
                     }
                 });
-
 
 
         tv_tv.setOnClickListener(new View.OnClickListener() {
@@ -120,9 +119,11 @@ public class TaikhoanFragment extends Fragment {
         AlertDialog alert11 = builder1.create();
         alert11.show();
     }
+
     private void handleLogout() {
         // Hiển thị hộp thoại xác nhận đăng xuất
         showLogoutConfirmationDialog();
     }
-    }
+
+}
 

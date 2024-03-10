@@ -104,14 +104,16 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/ghe1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:src="@drawable/so1" />
 
                     <ImageView
+                        android:id="@+id/ghe2"
                         android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="60dp"
                         android:src="@drawable/so2" />
                 </LinearLayout>
@@ -127,12 +129,14 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/ghe3"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:src="@drawable/so3" />
 
                     <ImageView
+                        android:id="@+id/ghe4"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="60dp"
@@ -150,12 +154,14 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/ghe5"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:src="@drawable/so5" />
 
                     <ImageView
+                        android:id="@+id/ghe6"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="60dp"
@@ -173,12 +179,14 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/ghe7"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:src="@drawable/so7" />
 
                     <ImageView
+                        android:id="@+id/ghe8"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="60dp"
@@ -196,12 +204,14 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/ghe9"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:src="@drawable/so9" />
 
                     <ImageView
+                        android:id="@+id/ghe10"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="60dp"
@@ -219,12 +229,14 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/ghe11"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:src="@drawable/so11" />
 
                     <ImageView
+                        android:id="@+id/ghe12"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="60dp"
@@ -261,12 +273,14 @@
                 android:layout_marginTop="90dp">
 
                 <ImageView
+                    android:id="@+id/ghe13"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/so13" />
 
                 <ImageView
+                    android:id="@+id/ghe14"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="60dp"
@@ -279,12 +293,14 @@
                 android:layout_marginTop="30dp">
 
                 <ImageView
+                    android:id="@+id/ghe15"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/so15" />
 
                 <ImageView
+                    android:id="@+id/ghe16"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="60dp"
@@ -297,12 +313,14 @@
                 android:layout_marginTop="30dp">
 
                 <ImageView
+                    android:id="@+id/ghe17"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/so17" />
 
                 <ImageView
+                    android:id="@+id/ghe18"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="60dp"
@@ -315,12 +333,14 @@
                 android:layout_marginTop="30dp">
 
                 <ImageView
+                    android:id="@+id/ghe19"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/so19" />
 
                 <ImageView
+                    android:id="@+id/ghe20"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="60dp"
@@ -333,12 +353,14 @@
                 android:layout_marginTop="30dp">
 
                 <ImageView
+                    android:id="@+id/ghe21"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/so21" />
 
                 <ImageView
+                    android:id="@+id/ghe22"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="60dp"
@@ -351,12 +373,14 @@
                 android:layout_marginTop="30dp">
 
                 <ImageView
+                    android:id="@+id/ghe23"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/so23" />
 
                 <ImageView
+                    android:id="@+id/ghe24"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="60dp"
@@ -372,14 +396,17 @@
 
     </LinearLayout>
 
+
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="363dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:background="#FAEED1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -389,19 +416,34 @@
             android:textSize="20dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tvTotal"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="400000"
+            android:hint="Số tiền"
             android:textSize="20dp" />
 
         <Button
             android:id="@+id/bttieptuc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
             android:backgroundTint="#FDE767"
             android:text="Tiếp tục"
             android:textColor="@color/black" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSelectedSeats"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="12dp"
+        android:text="Ghế đã chọn:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.722" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

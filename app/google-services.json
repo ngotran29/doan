@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "825472456436",
-    "project_id": "sendotp-aa506",
-    "storage_bucket": "sendotp-aa506.appspot.com"
+    "project_number": "489276664401",
+    "project_id": "mobile-aee66",
+    "storage_bucket": "mobile-aee66.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:825472456436:android:d3804aa63c3380e898f0a1",
+        "mobilesdk_app_id": "1:489276664401:android:40b22d7b4d129d7f786670",
         "android_client_info": {
           "package_name": "com.example.nhp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDc0VO6CXR4MmZ50cxERw5oBSfpvu59ARU"
+          "current_key": "AIzaSyB--WoHSUg5cVhCwmt15kNT51n9bmZhZko"
         }
       ],
       "services": {

@@ -13,6 +13,7 @@ import android.widget.Button;
 
 
 public class ChuyenDiFragment extends Fragment {
+    String Ngay;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -20,10 +21,18 @@ public class ChuyenDiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chuyen_di, container, false);
         ChuyenDiFragment chuyendi = new ChuyenDiFragment();
         Button chonchuyen = view.findViewById(R.id.btchonchuyen);
+        Bundle bundle = getArguments();
+        if(bundle!= null)
+        {
+            Ngay = bundle.getString("Ngay");
+        }
         chonchuyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundled = new Bundle();
                 ChongheFragment chonghe = new  ChongheFragment();
+                bundled.putString("Ngay", Ngay);
+                chonghe.setArguments(bundled);
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_fragment, chonghe);
                 transaction.addToBackStack(null);
