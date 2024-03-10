@@ -64,5 +64,10 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
 
+    //load img
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    //circle img
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
 }
 

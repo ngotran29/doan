@@ -24,7 +24,7 @@
             android:background="#23ABC3"
             android:backgroundTint="#23ABC3"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_circle" />
+            app:srcCompat="@drawable/user" />
 
         <TextView
             android:id="@+id/tv_tv"
