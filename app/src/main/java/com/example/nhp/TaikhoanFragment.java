@@ -23,19 +23,19 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.hbb20.CountryCodePicker;
 
 public class TaikhoanFragment extends Fragment {
-//    private static final String ARG_USERNAME = "username";
+    private static final String ARG_USERNAME = "username";
 
     public TaikhoanFragment() {
         // Constructor public rỗng bắt buộc
     }
 
-//    public static TaikhoanFragment newInstance(String username) {
-//        TaikhoanFragment fragment = new TaikhoanFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_USERNAME, username);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
+    public static TaikhoanFragment newInstance(String username) {
+        TaikhoanFragment fragment = new TaikhoanFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_USERNAME, username);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,12 +53,12 @@ public class TaikhoanFragment extends Fragment {
 
                         if (result.getResultCode() == 296) {
                             // There are no request codes
-//
-//                            Intent data = result.getData();
+
+                            Intent data = result.getData();
                             // do something
                             // Cập nhật giá trị cho tvlogin_tk
 //                            assert data != null;
-//
+
 //                            String username = null;
 //                            if (data != null) {
 //                                username = data.getDataString();
@@ -69,8 +69,6 @@ public class TaikhoanFragment extends Fragment {
                         }
                     }
                 });
-
-
         tv_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,11 +117,8 @@ public class TaikhoanFragment extends Fragment {
         AlertDialog alert11 = builder1.create();
         alert11.show();
     }
-
     private void handleLogout() {
         // Hiển thị hộp thoại xác nhận đăng xuất
         showLogoutConfirmationDialog();
     }
-
 }
-

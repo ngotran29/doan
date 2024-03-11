@@ -1,4 +1,4 @@
-package com.example.nhp;
+package com.example.nhp.Adapter;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
